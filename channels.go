@@ -7,6 +7,10 @@ func main() {
 
 	go func() {
 		messages <- "ping"
+		// channels are un buffered
+		// meanking that if we don't read again after reading `ping`
+		// then `pong will not be sent`
+
 		messages <- "pong"
 	}()
 
